@@ -1,0 +1,14 @@
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: '/api',
+  timeout: 10000
+});
+
+instance.interceptors.response.use(
+  (resp) => resp.data,
+  (err) => Promise.reject(err)
+);
+
+export default instance;
+
